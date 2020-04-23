@@ -17,3 +17,5 @@
 - [x] Implement the login route for users
 - [x] Creating a JWT token then sending it to the user
 - [x] Separate scripts in a MVC pattern
+- [x] Install the npm redis package, and the redis server in windows
+- [x] Try out the caching mecanism in the /products route to compare response time
