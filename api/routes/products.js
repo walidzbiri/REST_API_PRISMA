@@ -13,8 +13,10 @@ const {
     }=require('../controllers/productController')
 const uploadImage=require('../../helpers/uploadImage');
 const verifyToken=require('../../helpers/verifyToken');
+const {getCacheProducts}=require('../../helpers/cacheMiddlewares/products');
 
-router.get('/',getAllProducts);
+
+router.get('/',getCacheProducts,getAllProducts);
 router.post('/',verifyToken,uploadImage.single("productImage"),name_price_validator,error_middleware,createProduct);
 router.get('/:product_id',product_id_validator,error_middleware,getOneProduct);
 router.delete('/:product_id',verifyToken,product_id_validator,error_middleware,deleteOneProduct)

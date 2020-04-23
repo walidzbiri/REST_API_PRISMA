@@ -1,8 +1,10 @@
 const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
+const { setCacheProducts} =require('../../helpers/cacheMiddlewares/products');
 
 const getAllProducts=async (req,res,next)=>{
     const products=await prisma.product.findMany();
+    setCacheProducts(products);
     res.json({message:"Getting products",data:products});
 }
 
